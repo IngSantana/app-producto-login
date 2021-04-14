@@ -35,7 +35,7 @@ class _ProductoPageState extends State<ProductoPage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.photo_size_select_actual),
-            onPressed: _selecionarFoto(ImageSource.camera),
+            onPressed: () => _seleccionarFoto(),
           ),
           IconButton(
             icon: Icon(Icons.camera_alt),
@@ -167,11 +167,11 @@ class _ProductoPageState extends State<ProductoPage> {
     }
   }
 
-  _selecionarFoto(ImageSource origin) async {
+  _seleccionarFoto() async {
     _procesarImagen(ImageSource.gallery);
   }
 
-  _tomarFoto() {
+  _tomarFoto() async {
     _procesarImagen(ImageSource.camera);
   }
 
