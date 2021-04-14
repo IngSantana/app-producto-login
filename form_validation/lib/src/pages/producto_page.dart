@@ -156,9 +156,15 @@ class _ProductoPageState extends State<ProductoPage> {
     scaffolKey.currentState.showSnackBar(snackbar);
   }
 
-  _mostrarFoto() {
+  Widget _mostrarFoto() {
     if (producto.fotoUrl != null) {
-      return Container();
+      return FadeInImage(
+        placeholder: AssetImage('assets/jar-loading.gif'),
+        image: NetworkImage(producto.fotoUrl),
+        height: 300.0,
+        width: double.infinity,
+        fit: BoxFit.cover,
+      );
     } else {
       if (foto != null) {
         return Image.file(
