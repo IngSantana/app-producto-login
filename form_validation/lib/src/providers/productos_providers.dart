@@ -46,6 +46,9 @@ class ProductosProvider {
 
     if (decodedData == null) return [];
 
+    //cuando nuestro token expira
+    if (decodedData['error'] != null) return [];
+
     decodedData.forEach((id, prod) {
       final prodTemp = ProductoModel.fromJson(prod);
 
