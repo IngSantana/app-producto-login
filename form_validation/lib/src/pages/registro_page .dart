@@ -3,7 +3,7 @@ import 'package:form_validation/src/bloc/login_bloc.dart';
 import 'package:form_validation/src/bloc/provider.dart';
 export 'package:form_validation/src/bloc/provider.dart';
 
-class LoginPage extends StatelessWidget {
+class RegistroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
                 ]),
             child: Column(
               children: [
-                Text('ingreso', style: TextStyle(fontSize: 20.0)),
+                Text('Crear Cuenta', style: TextStyle(fontSize: 20.0)),
                 SizedBox(
                   height: 60.0,
                 ),
@@ -56,9 +56,8 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           TextButton(
-            child: Text('Olvido La contraseña'),
-            onPressed: () =>
-                Navigator.pushReplacementNamed(context, 'registro'),
+            child: Text('Ya Tienes Cuenta?  Login'),
+            onPressed: () => Navigator.pushReplacementNamed(context, 'login'),
           ),
           SizedBox(height: 100.0),
         ],
