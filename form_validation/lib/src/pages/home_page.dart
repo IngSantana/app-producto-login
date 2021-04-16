@@ -17,7 +17,8 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Home'),
       ),
-      body: _crearListado(productosBloc),
+      body: //Container(),
+          _crearListado(productosBloc),
       floatingActionButton: _crearBoton(context),
     );
   }
@@ -29,10 +30,13 @@ class HomePage extends StatelessWidget {
           (BuildContext context, AsyncSnapshot<List<ProductoModel>> snapshot) {
         if (snapshot.hasData) {
           final productos = snapshot.data;
-          return ListView.builder(
-            itemCount: productos.length,
-            itemBuilder: (context, i) =>
-                _crearItem(context, productosBloc, productos[i]),
+          return Scrollbar(
+            child: ListView.builder(
+              padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+              itemCount: productos.length,
+              itemBuilder: (context, i) =>
+                  _crearItem(context, productosBloc, productos[i]),
+            ),
           );
         } else {
           return Center(child: CircularProgressIndicator());
@@ -70,6 +74,7 @@ class HomePage extends StatelessWidget {
           
         }*/
         child: Card(
+          clipBehavior: Clip.antiAlias,
           child: Column(
             children: <Widget>[
               (producto.fotoUrl == null)
